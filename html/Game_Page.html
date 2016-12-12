@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAME_WORLD</title>
+
+    <script type='text/javascript' >
+        var jump = true;
+        //Set the first level
+        localStorage.level = 1;
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type = "text/javascript" src = "../js/Phaser.js"></script>
+    <script type = "text/javascript" src = "../js/Boot.js"></script>
+    <script type = "text/javascript" src = "../js/Preload.js"></script>
+    <script type = "text/javascript" src = "../js/Main.js"></script>
+
+    <!--Initialize game-->
+    <script>
+        function start_game()
+        {
+            //Create a new game that fills the screen
+            game = new Phaser.Game(window.innerWidth, window.innerHeight, "gameLayer");
+
+            //Add all states
+            game.state.add("Boot", Boot);
+            game.state.add("Preload", Preload);
+            game.state.add("Main", Main);
+
+            //alert("loading game...");
+            //Startup the physics
+            game.state.start("Boot");
+        }
+    </script>
+</head>
+
+<body>
+    <!--Start up game-->
+    <script>
+        start_game();
+    </script>
+</body>
+</html>
